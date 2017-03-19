@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>信息管理系统界面</title>
+<link href="<?php echo _PUBLIC_?>/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo _PUBLIC_?>/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo _PUBLIC_?>/js/jquery.min.js"></script> 
+<script>
+    
+$(function(){   
+    //导航切换
+    $(".menuson li").click(function(){
+        $(".menuson li.active").removeClass("active")
+        $(this).addClass("active");
+    });
+    
+    $('.title').click(function(){
+        $('.menuson').slideUp();
+        var $ul = $(this).next('ul');
+        $('li').find('ul').slideUp();
+        if($ul.is(':visible')){
+            $(this).next('ul').slideUp();
+        }else{
+            $(this).next('ul').slideDown();
+        }
+    });
+    //主页右上角按钮
+    $('.r_btn').click(function(){
+       $('body').toggleClass("hidden-menu");
+
+    });
+});
+
+</script>
+
+  <!-- Bootstrap -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<header>
+    <div class="topleft">
+        <div class="user"><span>admin</span><i>消息</i><b>5</b></div>
+    </div>
+        
+    <ul class="nav visible-lg-block">
+        <li><a href="default.html" target="rightFrame" class="selected"><h2>工作台</h2></a></li>
+        <li><a href="imgtable.html" target="rightFrame"><h2>模型管理</h2></a></li>
+        <li><a href="imglist.html"  target="rightFrame"><h2>模块设计</h2></a></li>
+        <li><a href="tools.html"  target="rightFrame"><h2>常用工具</h2></a></li>
+        <li><a href="computer.html" target="rightFrame"><h2>文件管理</h2></a></li>
+        <li><a href="tab.html"  target="rightFrame"><h2>系统设置</h2></a></li>
+    </ul>
+            
+    <div class="topright visible-lg-block">    
+        <ul>
+            <li><span><img src="<?php echo _PUBLIC_?>/images/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="index.html" target="_parent">退出</a></li>
+        </ul>
+    </div> 
+
+    <div class="hidden-md hidden-lg r_btn"><i class='glyphicon glyphicon-align-justify'></i></div>
+</header>
+    
+        
+<div class="m_con">
+    
+    <aside  class="leftmenu">
+        <dl>     
+            <dd>
+                <span class="title"><img src="<?php echo _PUBLIC_?>/images/leftico01.png" />全局设置</span>
+
+                <ul class="menuson">
+                    <li class="active"><cite></cite><a href="right.html" target="rightFrame">快捷导航</a><i></i></li>
+                    <li><cite></cite><a href="web_setting.html" target="rightFrame">站点设置</a><i></i></li>
+                    <li><cite></cite><a href="manage.html" target="rightFrame">管理员</a><i></i></li>
+                    <li><cite></cite><a href="system.html" target="rightFrame">系统管理</a><i></i></li>
+                    <li><cite></cite><a href="column.html" target="rightFrame">栏目导航</a><i></i></li>
+                    
+                </ul>    
+            </dd>
+            <dd>
+                <span class="title"><img src="<?php echo _PUBLIC_?>/images/leftico01.png" />广告管理</span>
+
+                <ul class="menuson">
+                    <li><cite></cite><a href="ad_list.html" target="rightFrame">广告列表</a><i></i></li>
+                </ul>    
+            </dd>   
+            <dd>
+                <span class="title"><img src="<?php echo _PUBLIC_?>/images/leftico01.png" />内容系统</span>
+
+                <ul class="menuson">
+                    <li><cite></cite><a href="page_con.html" target="rightFrame">单页内容</a><i></i></li>
+                    <li><cite></cite><a href="list_con.html" target="rightFrame">列表内容</a><i></i></li>
+                    <li><cite></cite><a href="imgtable.html" target="rightFrame">图表内容</a><i></i></li>
+                </ul>    
+            </dd> 
+            <dd>
+                <span class="title"><img src="<?php echo _PUBLIC_?>/images/leftico01.png" />产品系统</span>
+
+                <ul class="menuson">
+                    <li><cite></cite><a href="pro_list.html" target="rightFrame">产品列表</a><i></i></li>
+
+                </ul>    
+            </dd> 
+            <dd>
+                <span class="title"><img src="<?php echo _PUBLIC_?>/images/leftico01.png" />推荐系统</span>
+
+                <ul class="menuson">
+                    <li><cite></cite><a href="con_recommend.html" target="rightFrame">内容推荐</a><i></i></li>
+                    <li><cite></cite><a href="pro_recommend.html" target="rightFrame">产品推荐</a><i></i></li>
+
+                </ul>    
+            </dd> 
+            <dd>
+                <span class="title"><img src="<?php echo _PUBLIC_?>/images/leftico01.png" />留言管理</span>
+
+                <ul class="menuson">
+                    <li><cite></cite><a href="index.html" target="rightFrame">基本信息</a><i></i></li>
+                </ul>    
+            </dd> 
+
+        </dl>   
+    </aside>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+        </ul>
+    </div>
+
+<iframe src="main/right.html" name="rightFrame" id="rightFrame" title="rightFrame" ></iframe> 
+</div>
+                  
+
+
+
+</div>
+
+</body>
+</html>
+
+
+

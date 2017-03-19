@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>欢迎登录后台管理系统</title>
+<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/cloud.js" type="text/javascript"></script>
+<script language="javascript">
+	$(function(){
+        $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
+	    $(window).resize(function(){  
+            $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
+        }); 
+});  
+</script> 
+
+</head>
+
+<body style="background-color:#1c77ac; background-image:url(__PUBLIC__/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
+    <div id="mainBody">
+      <div id="cloud1" class="cloud"></div>
+      <div id="cloud2" class="cloud"></div>
+    </div>  
+<div class="logintop">    
+    <span>欢迎登录后台管理界面平台</span>    
+    <ul>
+    <li><a href="#">回首页</a></li>
+    <li><a href="#">帮助</a></li>
+    <li><a href="#">关于</a></li>
+    </ul>    
+    </div>
+    
+    <div class="loginbody">
+    
+    <div class="loginbox">
+    <form method="post" class="form" action="">
+        <ul>
+            <li><input name="" type="text" class="loginuser" value="admin" onclick="this.value=''"/></li>
+            <li><input name="" type="text" class="loginpwd" value="密码" onclick="this.value=''"/></li>
+            <li><input name="" type="button" class="loginbtn" value="登录" />
+                <span class="verify">
+                    <input placeholder="输入验证码" name="captcha" class="checkcode"></input>
+                    <img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}'" />
+                </span>
+            </li><br/>
+            <li><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label>
+
+            </li>
+        </ul>
+    </form>
+
+    </div>
+    </div>    
+    <div class="loginbm">版权所有  2013  <a href="http://www.uimaker.com">uimaker.com</a>  仅供学习交流，勿用于任何商业用途</div>  
+
+    <script type="text/javascript">
+        $('.loginbtn').click(function(){
+            var url="{:url('check')}";
+            var username=$('.loginuser');
+            var password=$('.loginpwd');
+            var checkcode=$('.checkcode');
+            $.post(url, { username: username.val(), password: password.val(),checkcode:checkcode.val() },function(data){
+                 console.log("Data Loaded: " + data);
+               });
+        });           
+     
+    
+    </script>  
+</body>
+
+</html>

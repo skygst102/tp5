@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>hello</title>
+</head>
+<script>
+    function refreshVerify() {
+       // var ts = Date.parse(new Date())/1000;
+        var img = document.getElementById('verify_img');
+        var scr=img.src;
+        img.src =scr;
+    }
+ </script>
+<body>
+hello, {$result.Id}{$result.web_name}!
+
+<div>
+<img id="verify_img" src="{:captcha_src()}" alt="验证码" onclick="refreshVerify()">
+                <a href="javascript:refreshVerify()">点击刷新</a></div>
+</body>
+</html>
