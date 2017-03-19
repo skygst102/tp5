@@ -61,11 +61,18 @@
     <script type="text/javascript">
         $('.loginbtn').click(function(){
             var url="{:url('check')}";
+            var url2="{:url('main')}";
             var username=$('.loginuser');
             var password=$('.loginpwd');
             var checkcode=$('.checkcode');
             $.post(url, { username: username.val(), password: password.val(),checkcode:checkcode.val() },function(data){
                  console.log("Data Loaded: " + data);
+                  console.log("Data Loaded: " + status);
+                 if (data===1) {
+                    window.location.href=url2;
+                 }else if(data===0){
+                    password.val('').focus();
+                 }
                });
         });           
      

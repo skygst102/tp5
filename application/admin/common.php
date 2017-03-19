@@ -1,4 +1,4 @@
 <?php
-/*define('_PUBLIC_', '/tp5/public/static');*/
+// define('__PUBLIC__', '/tp5/public/static');
 
 
