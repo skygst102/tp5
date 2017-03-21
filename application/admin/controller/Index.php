@@ -1,9 +1,9 @@
 <?php
 namespace app\admin\controller;
-use think\CommonAction;
+use think\Controller;
 use think\Db;
 // use app\admin\model\User_list;
-class index extends CommonAction 
+class index extends Controller
 {
 	public function index()
 	{	
@@ -13,12 +13,12 @@ class index extends CommonAction
 		// if (isset($_POST)) {
 		// 	dump('45');
 		// }
-	 dump('45');
+	
 		return $this->fetch();
 	}
 	public function clearSession()
 	{	
-		// session(null);
+		session(null);
 		$this->redirect('index');
 
 	}
@@ -36,11 +36,12 @@ class index extends CommonAction
 				"password" => input('post.password'),
 				"checkcode"=> input('post.checkcode')
 			);
-			// die;
 			$result=Db::name("user_list")
 				->where('username','=',$data['username'])
 				->find();	 
 			if($result['username']&&$result['password']==MD5($data['password'])){
+					session('username',$data['username']);
+					session('password',MD5($data['password']));
 				//手动验证
 				// if(captcha_check($data['checkcode'])){
 				// 	session('username',$data['username']);
