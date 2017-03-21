@@ -1,29 +1,6 @@
 <?php
 //配置文件
 return [
-	// 视图输出字符串内容替换
-	'view_replace_str' => [
-		'__ROOT__' => '',
-		'__PUBLIC__' => '/tp5/public/static',
-	],
-	//验证模块配置
-	'captcha'  => [
-	    // 验证码字符集合
-	    'codeSet'  => '2345678901ABCDEFGHJKLMNPQRTUVWXY', 
-	    // 验证码字体大小(px)
-	    'fontSize' => 18, 
-	    // 是否画混淆曲线
-	    'useCurve' => true, 
-	     // 验证码图片高度
-	    'imageH'   => 35,
-	    // 验证码图片宽度
-	    'imageW'   => 120, 
-	    // 验证码位数
-	    'length'   => 4, 
-	    // 验证成功后是否重置        
-	    'reset'    => true
-	],
-		
 ];
 
 // 5.0的fetch和display方法有什么区别？

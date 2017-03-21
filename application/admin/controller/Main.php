@@ -2,13 +2,13 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Db;
-class Main extends Controller
+class Main extends CommonAction 
 {
 
 	public function index ()
 	{
 		
-		return $this->fetch('main');
+		return $this->fetch();
 	}
 	public function right ()
 	{

@@ -1,13 +1,26 @@
 <?php
 namespace app\admin\controller;
-use think\Controller;
+use think\CommonAction;
 use think\Db;
 // use app\admin\model\User_list;
-class index extends Controller
+class index extends CommonAction 
 {
 	public function index()
-	{
+	{	
+		// if (!empty($_POST)) {
+		// 	dump('45');
+		// }
+		// if (isset($_POST)) {
+		// 	dump('45');
+		// }
+	 dump('45');
 		return $this->fetch();
+	}
+	public function clearSession()
+	{	
+		// session(null);
+		$this->redirect('index');
+
 	}
 	public function main()
 	{
@@ -23,18 +36,22 @@ class index extends Controller
 				"password" => input('post.password'),
 				"checkcode"=> input('post.checkcode')
 			);
+			// die;
 			$result=Db::name("user_list")
-				 ->where('username','=',$data['username'])
-				 ->find();	 
-			if($result['password']==MD5($data['password'])){
+				->where('username','=',$data['username'])
+				->find();	 
+			if($result['username']&&$result['password']==MD5($data['password'])){
 				//手动验证
-				if(captcha_check($data['checkcode'])){
-					// dump($data['checkcode']);
-				  return $status=1;	
-				};
+				// if(captcha_check($data['checkcode'])){
+				// 	session('username',$data['username']);
+				// 	session('password',MD5($data['password']));
+				
+				// 	return $status=1;	
+				// };
+				return $status=1;
 			}else{
-				//dump("登录失败");
-				 return $status=0;
+					//dump("登录失败");
+					return $status=0;
 			}		 
 			
 
